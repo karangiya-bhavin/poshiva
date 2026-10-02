@@ -42,11 +42,12 @@ class AccountCreatedScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 38),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // --------------------------------------------------
                   // TOP SPACING
                   // --------------------------------------------------
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 40), 
 
                   // --------------------------------------------------
                   // SUCCESS ILLUSTRATION
@@ -179,7 +180,7 @@ class AccountCreatedScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 70),
+                  const SizedBox(height: 20,),
                 ],
               ),
             ),
