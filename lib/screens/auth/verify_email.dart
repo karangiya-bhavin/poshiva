@@ -31,7 +31,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
   // STATE
   // ============================================================
 
-  int secondsRemaining = 45;
+  int secondsRemaining = 300;
 
   Timer? _timer;
 
@@ -78,7 +78,7 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
     if (!mounted) return;
 
     setState(() {
-      secondsRemaining = 45;
+      secondsRemaining = 300;
     });
 
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
