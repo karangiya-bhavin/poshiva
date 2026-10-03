@@ -39,15 +39,16 @@ class AccountCreatedScreen extends StatelessWidget {
           // MAIN CONTENT
           // ==================================================
           SafeArea(
-            child: Padding(
+            child: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               padding: const EdgeInsets.symmetric(horizontal: 38),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   // --------------------------------------------------
                   // TOP SPACING
                   // --------------------------------------------------
-                  const SizedBox(height: 40), 
+                  const SizedBox(height: 120),
 
                   // --------------------------------------------------
                   // SUCCESS ILLUSTRATION
@@ -59,7 +60,7 @@ class AccountCreatedScreen extends StatelessWidget {
                     fit: BoxFit.contain,
                   ),
 
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 5),
 
                   // --------------------------------------------------
                   // SUCCESS TITLE
@@ -69,7 +70,7 @@ class AccountCreatedScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: greenStart,
-                      fontSize: 24,
+                      fontSize: 35,
                       fontWeight: FontWeight.w700,
                       height: 1.15,
                     ),
@@ -82,7 +83,7 @@ class AccountCreatedScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Color(0xFF202020),
-                      fontSize: 24,
+                      fontSize: 34,
                       fontWeight: FontWeight.w700,
                       height: 1.15,
                     ),
@@ -180,7 +181,7 @@ class AccountCreatedScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 20,),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

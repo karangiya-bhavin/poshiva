@@ -24,6 +24,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // The scaffold does not resize for the keyboard, so the scroll view pads
+    // itself with the keyboard height, otherwise the password field and the
+    // buttons below it end up behind the keyboard with no way to scroll.
+    final double keyboardInset = MediaQuery.viewInsetsOf(context).bottom;
+
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -47,8 +52,9 @@ class _LoginScreenState extends State<LoginScreen> {
           // Main content
           // --------------------------------------------------
           SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 39),
+            child: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              padding: EdgeInsets.fromLTRB(39, 0, 39, 32 + keyboardInset),
               child: Column(
                 children: [
                   const SizedBox(height: 72),
@@ -222,7 +228,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   // --------------------------------------------------
                   // Remember Me / Forgot Password
                   // --------------------------------------------------
-                  Row(
+                  // Wrap instead of Row: on narrow screens (or with a
+                  // larger system font scale) the two labels no longer fit
+                  // on one line, and a Row would overflow horizontally.
+                  Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    runSpacing: 8,
+                    crossAxisAlignment: WrapCrossAlignment.center,
                     children: [
                       GestureDetector(
                         onTap: () {
@@ -263,8 +275,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ],
                         ),
                       ),
-
-                      const Spacer(),
 
                       GestureDetector(
                         onTap: () {

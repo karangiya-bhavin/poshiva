@@ -1,8 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required for release builds: debug/profile manifests declare this
+         themselves, but the main manifest is what release builds use.
+         Without it the app cannot reach the Supabase backend. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:label="poshiva"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
